@@ -1,0 +1,48 @@
+.listproduct-image{
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+}
+
+.productlist-format{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin: 10px;
+    background-color: rgba(251, 11, 227, 0.116);
+    border-radius: 10px;
+    padding: 5px;
+    border-bottom: 1px solid black;
+}
+
+.list-product{
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 5px;
+    
+}
+
+.productlist-allproducts{
+    background-color: rgba(148, 107, 213, 0.389);
+    border-radius: 10px;
+}
+
+#title{
+    width: 200px;
+}
+
+#price{
+    width: 100px;
+}
+
+#remove{
+    width: 100px;
+}
+
+ h1{
+    background-color: rgba(239, 169, 134, 0.458);
+    border-radius: 10px;
+    justify-content: center;
+    margin: 0;
+    padding: 10px;
+}
