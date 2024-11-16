@@ -1,13 +1,15 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
 // import SignupImg from "../../assets/Thar"
 // import { FinanceContext } from "../../context/financeContext"
 import '../Login/Login.css'
 import img from '../../assets/login1.jpg'
 import axios from 'axios'
+import { ProductContext } from "../../context/ProductContext"
 
 const Signup = (props) => {
   
+  const {url} = useContext(ProductContext)
  
   const [signupData,setSignupData] = useState ({
     
@@ -26,7 +28,7 @@ const Signup = (props) => {
     event.preventDefault()
     console.log(signupData,"signupdata")
     try {
-      const response = await axios.post('http://localhost:4000/api/signup', signupData);
+      const response = await axios.post(`${url}/signup`, signupData);
       console.log('Signup successful:', response.data.success);
       window.location.replace("/");
       localStorage.setItem('auth-token',response.data.token);

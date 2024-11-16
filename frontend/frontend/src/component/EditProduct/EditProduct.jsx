@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 
 const EditProduct = () => {
 
-  const{allProduct,getAllProduct} = useContext(ProductContext)
+  const{allProduct,getAllProduct,url} = useContext(ProductContext)
 
   const {productId} = useParams();
  const EditProduct = allProduct.find((e)=> e._id ===(productId));
@@ -30,7 +30,7 @@ const EditProduct = () => {
     console.log("Product Submitted: ", product);
     // Add functionality to send `product` to a backend or API.
     try {
-      const response = await axios.put(`http://localhost:4000/api/edit/${productId}`, product);
+      const response = await axios.put(`${url}/edit/${productId}`, product);
       console.log("Product Added Successfully", response.data);
       alert("Product updated successfully!")
       getAllProduct();

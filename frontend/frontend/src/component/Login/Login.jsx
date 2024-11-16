@@ -5,10 +5,11 @@ import img from '../../assets/login21.jpg'
 import { ImCross } from "react-icons/im";
 
 import axios from 'axios'
+import { ProductContext } from "../../context/ProductContext";
 
 const Login = (props) => {
   
-  
+  const{url} = useContext(ProductContext)
   const [userData,setUserData] = useState ({
    
     email:"",
@@ -26,7 +27,7 @@ const Login = (props) => {
     event.preventDefault()
     console.log(userData,"logindetails")
     try {
-      const response = await axios.post('http://localhost:4000/api/login', userData);
+      const response = await axios.post(`${url}/login`, userData);
       console.log('login successful:', response.data.token);
       alert("Succesfully Logged in")
       window.location.replace("/");

@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import './AddProduct.css'
 import axios from 'axios'
+import { ProductContext } from "../../context/ProductContext";
 
 
 const AddProduct = () => {
+
+  const {url} = useContext(ProductContext)
   const [product, setProduct] = useState({
     title: "",
     price: "",
@@ -27,7 +30,7 @@ const AddProduct = () => {
     console.log("Product Submitted: ", product);
     // Add functionality to send `product` to a backend or API.
     try {
-      const response = await axios.post('http://localhost:4000/api/add', product);
+      const response = await axios.post(`${url}/add`, product);
       console.log("Product Added Successfully", response.data);
       alert("Product added successfully!")
     } catch (error) {

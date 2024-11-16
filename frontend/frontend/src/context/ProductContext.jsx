@@ -13,13 +13,13 @@ const ProductContextProvider = (props) => {
     
 const [allProduct,setallProduct] = useState([]) 
 console.log(allProduct,"allProduct")
-
+const url = 'https://car-mgmt.onrender.com/api'
 
 
 
  
 const getAllProduct = async()=>{
-    axios.get("http://localhost:4000/api/find")
+    axios.get(`${url}/find`)
     .then((response) => {
         setallProduct(response.data.product);
     })
@@ -46,7 +46,7 @@ useEffect(()=>{
 
  
 
-   const contextValue = {allProduct, getAllProduct}
+   const contextValue = {allProduct, getAllProduct,url}
     return (
         <ProductContext.Provider value={contextValue}>
             {props.children}
