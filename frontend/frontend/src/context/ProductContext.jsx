@@ -24,7 +24,7 @@ const getAllProduct = async()=>{
         setallProduct(response.data.product);
     })
     .catch((error) => {
-        console.error("There was an error fetching the Thater", error);
+        console.error("There was an error fetching the products", error);
     }); 
 }
 
